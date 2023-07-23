@@ -1,30 +1,34 @@
 #ifndef MAIN_H
 #define MAIN_H
+
+#include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdarg.h>
+#include <unistd.h>
+#include <limits.h>
+#include <stdint.h>
 
-/**
-* struct format - struct
-*@specifiers: struct format
-*@f: the function
-*/
-
-typedef struct op
+typedef struct forma_cara
 {
-	char op;
-	int (*f)(va_list);
-} op_t;
+	char str;
+	int (*print)(va_list arg);
+} string;
 
-/*prototypes*/
-int _printf(const char *format, ...);
-int get_function(char s, va_list args);
+
 int _putchar(char c);
-
-/*conversion*/
-int printchar(va_list args);
-int printstring(va_list args);
-int printdigit(va_list args);
-int printsign(va_list args);
+int print_chare(va_list arg);
+int print_string(va_list arg);
+int _printf(const char *format, ...);
+int print_integer(va_list arg);
+int print_binary(va_list arg);
+int switche(va_list list, char format);
+int print_min_int(void);
+int count_digits(int n);
+int print_u_integer(va_list arg);
+int print_octal(va_list arg);
+int print_hex(va_list arg);
+int print_hex_upper(va_list arg);
+int print_str(va_list arg);
+int print_add(va_list arg);
 
 #endif
